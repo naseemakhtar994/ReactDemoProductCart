@@ -1,6 +1,7 @@
 import React from 'react';
-import { Text, StyleSheet, View, Button } from 'react-native';
+import { Text, StyleSheet, View } from 'react-native';
 import { ProductItemType } from '../types/genericTypes';
+import Button from './Button';
 
 interface ProductItemProps {
   onPressAddtoCart: () => void;
@@ -47,6 +48,7 @@ const styles = StyleSheet.create({
   },
   btnContainer: {
     flexDirection: 'row',
+    marginTop:10,
     justifyContent: 'space-between',
   }
 });

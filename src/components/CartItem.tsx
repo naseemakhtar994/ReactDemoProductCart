@@ -1,5 +1,6 @@
 import React from 'react';
-import { Text, StyleSheet, View, Button } from 'react-native';
+import { Text, StyleSheet, View } from 'react-native';
+import Button from './Button';
 
 interface CartItemProps {
   onClickRemove: () => void;
@@ -12,9 +13,7 @@ const CartItem = (props: CartItemProps) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
-      <View style={styles.buttonContainer}>
-        <Button title={'Remove'} onPress={onClickRemove} />
-      </View>
+      <Button title={'Remove'} onPress={onClickRemove} />
     </View>
   );
 };
@@ -22,11 +21,14 @@ const CartItem = (props: CartItemProps) => {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
+    flexDirection:'row',
+    alignItems:'center',
     padding: 16,
     borderWidth: 1,
     borderColor: '#e7e7e7',
     borderRadius: 8,
     marginVertical: 4,
+    justifyContent: 'space-between',
   },
   title: {
     fontSize: 16,
@@ -34,6 +36,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flexDirection: 'row',
+    marginTop:10,
     justifyContent: 'space-between',
   },
 });

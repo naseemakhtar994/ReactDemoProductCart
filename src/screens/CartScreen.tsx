@@ -3,9 +3,10 @@ import { View, Text, StyleSheet, FlatList } from 'react-native';
 import { CartItem } from '../components';
 import useCartController from '../view-controllers/useCartController';
 import { ProductItemType } from '../types/genericTypes';
+import UserName from '../components/UserName';
 
 const CartScreen = () => {
-  const { cartList, userInfo, onClickRemove } = useCartController();
+  const { cartList, onClickRemove } = useCartController();
 
   const renderCartItem = ({ item }: { item: ProductItemType }) => {
     return (
@@ -15,9 +16,7 @@ const CartScreen = () => {
 
   return (
     <View style={styles.background}>
-      <View style={styles.headingView}>
-        <Text style={styles.heading}>{userInfo?.username}</Text>
-      </View>
+     <UserName/>
       <View style={styles.cartlistContainer}>
         <FlatList
           keyExtractor={item => item.id}
@@ -40,6 +39,8 @@ const styles = StyleSheet.create({
   heading: {
     fontSize: 28,
     fontWeight: '500',
+    color:'red',
+    textTransform:'capitalize'
   },
   headingView: {
     flexDirection: 'row',

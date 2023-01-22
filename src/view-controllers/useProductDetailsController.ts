@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import { screenMap } from '../navigation/screenMap';
 const useProductDetailsController = (product: ProductItemType) => {
   const navigation = useNavigation();
-  const { userInfo, cartList, addcartList } = useAppViewModel();
+  const { cartList, addcartList } = useAppViewModel();
 
   const selectedProduct = cartList.find((item) => item?.id == product.id);
 
@@ -35,7 +35,6 @@ const useProductDetailsController = (product: ProductItemType) => {
     buttontxt,
     setButtontext,
     onPressAddtoCart,
-    userInfo,
   };
 };
 

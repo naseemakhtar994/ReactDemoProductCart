@@ -1,6 +1,6 @@
 import useAppViewModel from '../view-models/useAppViewModel';
 const useCartController = () => {
-  const { cartList, userInfo, removeItemFromCart } = useAppViewModel();
+  const { cartList, removeItemFromCart } = useAppViewModel();
 
   // ** RemoveItem from cart 
   const onClickRemove = (id: string) => {
@@ -8,7 +8,6 @@ const useCartController = () => {
   };
 
   return {
-    userInfo,
     onClickRemove,
     cartList,
   };

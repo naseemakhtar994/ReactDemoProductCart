@@ -7,18 +7,32 @@ import LoginSceen from '../screens/LoginScreen';
 import CartScreen from '../screens/CartScreen';
 import { AppStateType, StoreType } from '../types/stateTypes';
 import { useSelector } from 'react-redux';
+import CartIcon from '../components/CartIcon';
 
 const AppContainer = () => {
   const Stack = createNativeStackNavigator();
- const {  userInfo }: AppStateType = useSelector(
+  const { userInfo, cartList }: AppStateType = useSelector(
     (state: StoreType) => state.app
-  );  return (
+  );
+  const cartCount = cartList.length;
+
+  return (
     <NavigationContainer>
       <Stack.Navigator>
-      {!userInfo &&  <Stack.Screen name={screenMap.Login} component={LoginSceen} />}
-       
+        {!userInfo && <Stack.Screen name={screenMap.Login} component={LoginSceen} />}
 
-        <Stack.Screen name={screenMap.Home} component={HomeScreen} />
+
+        <Stack.Screen name={screenMap.Home} component={HomeScreen}
+
+          options={({ navigation, route }) => ({
+
+            // Add a placeholder button without the `onPress` to avoid flicker
+            headerRight: () => (
+              <CartIcon cartCount={cartCount} />
+            ),
+          })}
+
+        />
 
         <Stack.Screen
           name={screenMap.ProductDetails}

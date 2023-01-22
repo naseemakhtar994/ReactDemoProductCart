@@ -10,6 +10,7 @@ import { ProductItemType } from '../types/genericTypes';
 import { WebView } from 'react-native-webview';
 
 import useProductDetailsController from '../view-controllers/useProductDetailsController';
+import UserName from '../components/UserName';
 
 interface ProductDetailsProps {
   route: { params: ProductItemType };
@@ -23,9 +24,7 @@ const ProductDetails = (props: ProductDetailsProps) => {
 
   return (
     <View style={styles.background}>
-      <View style={styles.headingView}>
-        <Text style={styles.heading}>{userInfo?.username}</Text>
-      </View>
+     <UserName/>
 
       <Text
         style={styles.input}

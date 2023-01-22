@@ -10,6 +10,7 @@ import {
 import { ProductItem } from '../components';
 import useHomeController from '../view-controllers/useHomeController';
 import { ProductItemType } from '../types/genericTypes';
+import UserName from '../components/UserName';
 
 const HomeScreen = () => {
   const {
@@ -38,12 +39,8 @@ const HomeScreen = () => {
 
   return (
     <View style={styles.background}>
-      <View style={styles.headingView}>
-        <Text style={styles.heading}>{userInfo?.username}</Text>
-        <TouchableOpacity style={styles.btn} onPress={onPressCart}>
-          <Text style={styles.btnText}>Cart</Text>
-        </TouchableOpacity>
-      </View>
+      <UserName />
+
       <View style={styles.productListContainer}>
         {loading && <ActivityIndicator />}
         <FlatList
@@ -66,6 +63,8 @@ const styles = StyleSheet.create({
   heading: {
     fontSize: 28,
     fontWeight: '500',
+    color: 'red',
+    textTransform: 'capitalize'
   },
   headingView: {
     flexDirection: 'row',

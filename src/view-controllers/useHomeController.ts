@@ -6,10 +6,10 @@ import React from 'react';
 
 const useHomeController = () => {
   const navigation = useNavigation();
-  const { addcartList, cartList, userInfo } = useAppViewModel();
+  const { addcartList, cartList } = useAppViewModel();
   const [products, setProducts] = React.useState();
   const [loading, setLoading] = React.useState(true);
-  
+
   useEffect(() => {
     // Get Product From Api
     getProducts();
@@ -51,7 +51,6 @@ const useHomeController = () => {
     onPressDetails,
     products,
     loading,
-    userInfo,
     cartList,
   };
 };
