@@ -17,9 +17,8 @@ const CartIcon = (props: CartIconProps) => {
             onPress={() => navigation.navigate(screenMap.Cart)}
             style={styles.container}>
             <Image
+                source={require('../../assets/cart-svgrepo-com.png')}
                 style={styles.cartImg}
-                resizeMode='contain'
-                source={require('../../assets/carticon.png')}
             />
             {cartCount > 0 && <Text style={styles.cartCount}>{cartCount}</Text>}
         </TouchableOpacity>
@@ -31,15 +30,16 @@ const styles = StyleSheet.create({
         marginRight: 10,
     },
     cartCount: {
-        backgroundColor: '#000',
-        height: 30,
-        width: 30,
+        backgroundColor: '#fff',
+        height: 25,
+        borderWidth: 1,
+        width: 25,
         textAlign: "center",
         borderRadius: 100,
-        color: '#fff',
+        color: '#000',
         position: 'absolute',
         right: 0,
-        paddingTop:5,
+        paddingTop: 3,
     },
     cartImg: {
         width: 50,

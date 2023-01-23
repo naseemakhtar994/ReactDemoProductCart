@@ -25,7 +25,8 @@ const ProductDetails = (props: ProductDetailsProps) => {
 
   return (
     <ScrollView style={{
-      flex: 1
+      flex: 1,
+      backgroundColor: '#fff'
     }}>
       <View style={styles.background}>
         <UserName />
@@ -68,8 +69,9 @@ const ProductDetails = (props: ProductDetailsProps) => {
         </Text>
 
         <WebView
+          startInLoadingState={true}
           source={{ html: `<iframe width="100%" height="50%" src="${product.video}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>` }}
-          style={{ marginTop: 20, height: 300 }}
+          style={{ marginTop: 20, height: 500 }}
         />
 
         <TouchableOpacity
@@ -101,7 +103,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   btn: {
-    padding: 8,
+    padding: 14,
     borderRadius: 8,
     backgroundColor: '#000',
     alignItems: 'center',

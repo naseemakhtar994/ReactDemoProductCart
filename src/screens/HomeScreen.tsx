@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   FlatList,
   ActivityIndicator,
+  Image,
 } from 'react-native';
 import { ProductItem } from '../components';
 import useHomeController from '../view-controllers/useHomeController';
@@ -14,21 +15,21 @@ import UserName from '../components/UserName';
 
 const HomeScreen = () => {
   const {
-    userInfo,
+
     onPressDetails,
     onPressAddtoCart,
-    onPressCart,
     products,
     loading,
     cartList,
   } = useHomeController();
 
+
+
   const renderProductItem = ({ item }: { item: ProductItemType }) => {
     return (
       <ProductItem
         cartList={cartList}
-        productId={item.id}
-        title={item.productName}
+        product={item}
         onPressAddtoCart={() => {
           onPressAddtoCart(item);
         }}
@@ -39,8 +40,7 @@ const HomeScreen = () => {
 
   return (
     <View style={styles.background}>
-      <UserName />
-
+        <UserName />
       <View style={styles.productListContainer}>
         {loading && <ActivityIndicator />}
         <FlatList
@@ -59,6 +59,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     paddingVertical: 8,
     paddingHorizontal: 8,
+  },
+  headerContaienr:{
+    flexDirection: 'row',
+    padding: 15,
+    alignItems: 'center'
   },
   heading: {
     fontSize: 28,

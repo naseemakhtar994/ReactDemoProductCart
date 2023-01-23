@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Text, StyleSheet, View } from 'react-native';
 import { ProductItemType } from '../types/genericTypes';
 import Button from './Button';
@@ -6,19 +6,26 @@ import Button from './Button';
 interface ProductItemProps {
   onPressAddtoCart: () => void;
   onPressDetails: () => void;
-  title: string;
-  productId: string;
+  product: ProductItemType;
   cartList: any;
 }
 
-const ProductItem = (props: ProductItemProps) => {
-  const { onPressDetails, onPressAddtoCart, title, cartList, productId } = props;
+const ProductItem = memo(function ProductItem(props: ProductItemProps) {
+  const { onPressDetails, onPressAddtoCart, cartList, product } = props;
 
-  const selectedProduct = cartList.find((item: ProductItemType) => item?.id == productId);
+  const selectedProduct = cartList.find((item: ProductItemType) => item?.id == product.id);
+
+
 
   return (
     <View style={styles.container} >
-      <Text style={styles.title}>{title}</Text>
+      <View style={styles.productNameConyaier}>
+      <Text style={styles.title}>{product.productName}</Text>
+      <Text style={{
+        fontSize:20,
+        color:'green'
+      }}>{`₹ ${product.price}`}</Text>
+      </View>
       <View style={styles.btnContainer}>
         <Button
           title="Details"
@@ -31,7 +38,7 @@ const ProductItem = (props: ProductItemProps) => {
       </View>
     </View>
   );
-};
+});
 
 const styles = StyleSheet.create({
   container: {
@@ -42,13 +49,19 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginVertical: 4,
   },
+  productNameContainer: {
+    flexDirection:'row',
+    alignItems:'center',
+    justifyContent:'space-between'
+  },
   title: {
     fontSize: 16,
-    fontWeight: '400',
+    fontWeight: 'bold',
+    color:'#000',
   },
   btnContainer: {
     flexDirection: 'row',
-    marginTop:10,
+    marginTop: 10,
     justifyContent: 'space-between',
   }
 });
