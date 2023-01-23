@@ -70,8 +70,8 @@ const ProductDetails = (props: ProductDetailsProps) => {
 
         <WebView
           startInLoadingState={true}
-          source={{ html: `<iframe width="100%" height="50%" src="${product.video}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>` }}
-          style={{ marginTop: 20, height: 500 }}
+          source={{ html: `<iframe width="100%" height="100%" src="${product.video}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>` }}
+          style={{ marginTop: 20, height: 200 }}
         />
 
         <TouchableOpacity
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     backgroundColor: '#000',
     alignItems: 'center',
-    marginVertical: 8,
+    marginVertical: 20,
   },
   btnText: {
     fontSize: 16,

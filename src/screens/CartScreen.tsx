@@ -4,6 +4,7 @@ import { CartItem } from '../components';
 import useCartController from '../view-controllers/useCartController';
 import { ProductItemType } from '../types/genericTypes';
 import UserName from '../components/UserName';
+import EmptyCart from '../components/EmptyCart';
 
 const CartScreen = () => {
   const { cartList, onClickRemove } = useCartController();
@@ -21,7 +22,7 @@ const CartScreen = () => {
         ListHeaderComponent={UserName}
           keyExtractor={item => item.id}
           data={cartList}
-          ListEmptyComponent={() => <Text>{'Cart is Empty'}</Text>}
+          ListEmptyComponent={EmptyCart}
           renderItem={renderCartItem}
         />
       </View>
