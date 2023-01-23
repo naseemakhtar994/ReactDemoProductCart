@@ -40,10 +40,10 @@ const HomeScreen = () => {
 
   return (
     <View style={styles.background}>
-        <UserName />
-      <View style={styles.productListContainer}>
+      <View>
         {loading && <ActivityIndicator />}
         <FlatList
+        ListHeaderComponent={UserName}
           keyExtractor={(item) => item.id}
           data={products}
           renderItem={renderProductItem}
@@ -57,12 +57,12 @@ const styles = StyleSheet.create({
   background: {
     flex: 1,
     backgroundColor: '#fff',
-    paddingVertical: 8,
+    // paddingVertical: 8,
     paddingHorizontal: 8,
   },
   headerContaienr:{
     flexDirection: 'row',
-    padding: 15,
+    // padding: 15,
     alignItems: 'center'
   },
   heading: {
@@ -84,9 +84,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '400',
     paddingHorizontal: 8,
-  },
-  productListContainer: {
-    marginVertical: 24,
   },
 });
 

@@ -40,11 +40,11 @@ const styles = StyleSheet.create({
   price: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: 'red'
+    color:'green'
   },
   title: {
 
-    fontSize: 20,
+    fontSize: 15,
     fontWeight: 'bold'
   },
   buttonContainer: {
