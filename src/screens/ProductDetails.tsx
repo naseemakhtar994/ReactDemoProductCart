@@ -5,6 +5,7 @@ import {
   TextInput,
   StyleSheet,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 import { ProductItemType } from '../types/genericTypes';
 import { WebView } from 'react-native-webview';
@@ -23,24 +24,61 @@ const ProductDetails = (props: ProductDetailsProps) => {
     useProductDetailsController(product);
 
   return (
-    <View style={styles.background}>
-     <UserName/>
+    <ScrollView style={{
+      flex: 1
+    }}>
+      <View style={styles.background}>
+        <UserName />
 
-      <Text
-        style={styles.input}
-      >
-        {productName}
-      </Text>
-      <WebView
-        source={{ html: `<iframe width="100%" height="50%" src="${product.video}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>` }}
-        style={{ marginTop: 20 }}
-      />
-      <TouchableOpacity
-        style={styles.btn}
-        onPress={onPressAddtoCart}>
-        <Text style={styles.btnText}>{buttontxt}</Text>
-      </TouchableOpacity>
-    </View>
+        <Text
+          style={[styles.input, styles.productName]}
+        >
+          {productName}
+        </Text>
+
+        <Text
+          style={[styles.input, styles.price]}
+        >
+          {`Price : ${product.price}`}
+        </Text>
+
+
+        <Text
+          style={styles.input}
+        >
+          {`Processer : ${product.cpu}`}
+        </Text>
+
+        <Text
+          style={styles.input}
+        >
+          {`Storage : ${product.storage}`}
+        </Text>
+
+        <Text
+          style={styles.input}
+        >
+          {`RAM : ${product.ram}`}
+        </Text>
+
+        <Text
+          style={[styles.input, { lineHeight: 22 }]}
+        >
+          {product.description}
+        </Text>
+
+        <WebView
+          source={{ html: `<iframe width="100%" height="50%" src="${product.video}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>` }}
+          style={{ marginTop: 20, height: 300 }}
+        />
+
+        <TouchableOpacity
+          style={styles.btn}
+          onPress={onPressAddtoCart}>
+          <Text style={styles.btnText}>{buttontxt}</Text>
+        </TouchableOpacity>
+      </View>
+    </ScrollView>
   );
 };
 
@@ -51,10 +89,13 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     paddingHorizontal: 8,
   },
+  productName: { fontSize: 20, fontWeight: 'bold' },
+
   heading: {
     fontSize: 28,
     fontWeight: '500',
   },
+  price: { fontSize: 20, fontWeight: 'bold', color: 'green' },
   headingView: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -78,8 +119,8 @@ const styles = StyleSheet.create({
   },
   input: {
     width: '100%',
-    padding: 10,
-    borderWidth: 1,
+    padding: 5,
+
     borderColor: '#e7e7e7',
     borderRadius: 8,
     marginVertical: 8,

@@ -10,7 +10,7 @@ const CartScreen = () => {
 
   const renderCartItem = ({ item }: { item: ProductItemType }) => {
     return (
-      <CartItem title={item.productName} onClickRemove={() => onClickRemove(item.id)} />
+      <CartItem product={item} onClickRemove={() => onClickRemove(item.id)} />
     );
   };
 

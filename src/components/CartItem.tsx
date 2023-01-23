@@ -1,18 +1,25 @@
 import React from 'react';
 import { Text, StyleSheet, View } from 'react-native';
+import { ProductItemType } from '../types/genericTypes';
 import Button from './Button';
 
 interface CartItemProps {
   onClickRemove: () => void;
-  title: string;
+  product: ProductItemType;
 }
 
 const CartItem = (props: CartItemProps) => {
-  const { onClickRemove, title } = props;
+  const { onClickRemove, product } = props;
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{title}</Text>
+      <View style={{
+        flexDirection: 'column'
+      }}>
+        <Text style={styles.title}>{product.productName}</Text>
+        <Text style={styles.price}>{`₹ ${product.price}`}</Text>
+
+      </View>
       <Button title={'Remove'} onPress={onClickRemove} />
     </View>
   );
@@ -21,8 +28,8 @@ const CartItem = (props: CartItemProps) => {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    flexDirection:'row',
-    alignItems:'center',
+    flexDirection: 'row',
+    alignItems: 'center',
     padding: 16,
     borderWidth: 1,
     borderColor: '#e7e7e7',
@@ -30,13 +37,19 @@ const styles = StyleSheet.create({
     marginVertical: 4,
     justifyContent: 'space-between',
   },
+  price: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: 'red'
+  },
   title: {
-    fontSize: 16,
-    fontWeight: '400',
+
+    fontSize: 20,
+    fontWeight: 'bold'
   },
   buttonContainer: {
     flexDirection: 'row',
-    marginTop:10,
+    marginTop: 10,
     justifyContent: 'space-between',
   },
 });
