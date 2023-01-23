@@ -16,9 +16,9 @@ const CartScreen = () => {
 
   return (
     <View style={styles.background}>
-     <UserName/>
-      <View style={styles.cartlistContainer}>
+      <View>
         <FlatList
+        ListHeaderComponent={UserName}
           keyExtractor={item => item.id}
           data={cartList}
           ListEmptyComponent={() => <Text>{'Cart is Empty'}</Text>}

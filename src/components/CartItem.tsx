@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, StyleSheet, View } from 'react-native';
+import { Text, StyleSheet, View, Image, TouchableOpacity } from 'react-native';
 import { ProductItemType } from '../types/genericTypes';
 import Button from './Button';
 
@@ -20,7 +20,14 @@ const CartItem = (props: CartItemProps) => {
         <Text style={styles.price}>{`₹ ${product.price}`}</Text>
 
       </View>
-      <Button title={'Remove'} onPress={onClickRemove} />
+      <TouchableOpacity
+      onPress={onClickRemove}
+      >
+      <Image style={{
+        height:30,
+        width:30
+      }} source={require('../../assets/delete.png')}/>
+     </TouchableOpacity>
     </View>
   );
 };

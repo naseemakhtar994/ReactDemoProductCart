@@ -41,13 +41,14 @@ const HomeScreen = () => {
   return (
     <View style={styles.background}>
       <View>
-        {loading && <ActivityIndicator />}
+      
         <FlatList
         ListHeaderComponent={UserName}
           keyExtractor={(item) => item.id}
           data={products}
           renderItem={renderProductItem}
         />
+          {loading && <ActivityIndicator />}
       </View>
     </View>
   );
