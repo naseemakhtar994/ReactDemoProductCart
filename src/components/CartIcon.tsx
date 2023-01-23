@@ -31,19 +31,20 @@ const styles = StyleSheet.create({
     },
     cartCount: {
         backgroundColor: '#fff',
-        height: 25,
+        height: 15,
         borderWidth: 1,
-        width: 25,
+        width: 15,
         textAlign: "center",
         borderRadius: 100,
         color: '#000',
         position: 'absolute',
         right: 0,
-        paddingTop: 3,
+        fontSize:11
+        // paddingTop: 3,
     },
     cartImg: {
-        width: 50,
-        height: 50,
+        width: 35,
+        height: 35,
     },
 });
 
